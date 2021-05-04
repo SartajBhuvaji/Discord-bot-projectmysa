@@ -11,7 +11,7 @@
 
  bot.on('message', msg=>{
      if(msg.content === "hibot"){
-         msg.reply('Hello')
+         msg.reply('Hello from the local server')
      }
  })
 
