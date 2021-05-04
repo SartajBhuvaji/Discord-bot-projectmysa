@@ -1,8 +1,10 @@
  const Discord = require('discord.js');
+ const config = require("./config.json");
  const bot = new Discord.Client();
- const token = 'ODM4NzUyNDM1Njg1Njg3MzY2.YI_rEw.-CS_dWLqofpUUk_H25Wmef3-HWM';
- const confessHere  = "838748507236990986" //FROM
- const confessions  = "838748595096125481" //TO
+ const token = config.BOT_TOKEN;
+ const prefix = config.PREFIX;
+ const confessHere  = config.confessHereToken //FROM
+ const confessions  = config.confessionsToken //TO
 
  bot.on('ready',()=>{
     console.log('Bot Online');
@@ -12,12 +14,17 @@
  })
 
  bot.on('message', msg=>{
+     if (msg.author.bot) return;
      if(msg.content === "hibot"){
         msg.reply('Hello from the local server')       
      }
-     if(msg.content === "master"){
+     if(msg.content === `${prefix}+"master"`){
         msg.reply('I was made by Sartaj')       
      }
+     if(msg.content === "!sa ping"){
+      const timeTaken =  msg.createdTimestamp - Date.now();
+      msg.reply(`Pong! This message had a latency of ${timeTaken}ms.`);            
+   }
 
      //CONFESSION BOT
      if(msg.channel.id  === confessHere){ //identify #confess-here 
