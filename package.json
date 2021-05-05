@@ -1,6 +1,6 @@
 {
   "name": "projectmysa-bot",
-  "version": "1.1.2",
+  "version": "1.2.4",
   "description": "Discord bot for projectmysa",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
   "author": "Sartaj Bhuvaji",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.5.3"
+    "discord.js": "^12.5.3",
+    "snekfetch": "^4.0.4"
   }
 }
