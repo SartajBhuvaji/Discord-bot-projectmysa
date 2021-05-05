@@ -3,17 +3,47 @@
  const bot = new Discord.Client();
  const token = config.BOT_TOKEN;
  const prefix = config.PREFIX;
- const confessHere  = config.confessHereToken //FROM
- const confessions  = config.confessionsToken //TO
+ const confessHere  = config.confessHereToken; //FROM
+ const confessions  = config.confessionsToken; //TO
+ const privateMessage = require('./private-message');
  const { get } = require("snekfetch"); 
+
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
     bot.user.setActivity(' ig/@projectmysa', ({type: "WATCHING"}))
 
  })
+//needs special permission in discord/developer/application/bot ->Privileged Gateway Intents & SERVER MEMBERS INTENT
+ bot.on('guildMemberAdd',(member)=>{
+    const attachment = new Discord.MessageAttachment('./media/logo.png', 'logo.png');
+         const exampleEmbed = new Discord.MessageEmbed()
+	      .setColor('#0099ff')
+	      .setTitle('Projectmysa')
+	      .setURL('https://www.instagram.com/projectmysa/')
+	      .setDescription('Hi, welcome to the server! \nProject Mysa is a Mental Health Project aimed at building a community, stimulating discourse by creating a safe space, breaking taboos, & helping you love yourself')
+         .attachFiles(attachment)
+	      .setThumbnail('attachment://logo.png')
+      	.addFields(
+            { name: 'How to get started ?', value: "My prefix is ``!sa`` \n Type ``!sa help`` in any text channel to learn more."},
+            { name: '\u200B', value: '\u200B' },
+
+            { name: "Other Useful Links", value: '\u200B', inline: false },
+            { name: "Instagram", value: " [@projectmysa](https://www.instagram.com/projectmysa/)", inline : true},
+            { name: "Coded by", value: " @SartajBhuvaji", inline : true}
+           
+	      )
+         .setFooter('Mysa- Project Mental Health', 'attachment://logo.png')
+        // .react(`✅`);
+         member.send(exampleEmbed);
+    //console.log(member);
+ })
 
  bot.on('message', msg=>{
+    if(msg.content === "!sa master"){
+       console.log('In pvt msg')
+     privateMessage(bot,'!sa personalmsg','Pong')
+   }
      if (msg.author.bot) return;
      if(msg.content === "!sa hi"){
         msg.reply('Hello from the local server')       
@@ -108,7 +138,7 @@
          const randomNum = (Math.floor(Math.random()* 2)+1).toString();
          if(randomNum ==='1'){
             exampleEmbed.addFields(
-               { name: 'How to find and use commands', value: "My prefix is ``!sa`` \nTo get started, please type one of the commands below."},
+               { name: 'You routine for the day ', value: "\u200B"},
                //{ name: '\u200B', value: '\u200B' },
                { name: "• drink water  \n• eat a meal \n• take medications (if needed) \n• make your bed  \n• brush your teeth  \n• take a few deep breaths and stretch  \n• take some time to yourself \n• tidy up \n• be kind to yourself, always"
                , value: "\u200B", inline: false },   
