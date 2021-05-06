@@ -6,6 +6,7 @@
  const confessHere  = config.confessHereToken; //FROM
  const confessions  = config.confessionsToken; //TO
  const privateMessage = require('./private-message');
+ const selfAccesseedRole = require('./selfAccessedRole.js');
  const { get } = require("snekfetch"); 
 
  bot.on('ready',()=>{
@@ -60,6 +61,11 @@
       if(randomNum ==='1') msg.reply("Heads"); 
       else  msg.reply("Tails"); 
      }
+     if(msg.content === "!sa getrole" ){ //&& role!=
+      //msg.reply("Tails"); 
+      msg.reply(selfAccesseedRole(bot,"!sa getrole"))
+   
+      }
      //Heal bot
      // bug: gif file not loading
       if(msg.content=== "!sa help"){
