@@ -71,15 +71,9 @@
       const randomNum = (Math.floor(Math.random()* 2)+1).toString();
       if(randomNum ==='1') msg.reply("Heads"); 
       else  msg.reply("Tails"); 
-     }
-     //let args = msg.content.substring().split(" ")[0];
-     
+     }     
      if(msg.content.substring().split(" ")[0] === "!sa" &&msg.content.substring().split(" ")[1]=== "poll"){
-        //console.log("In poll")
-       
       poll(bot,msg);
-
-
      }
 
      if(msg.content === "!sa getrole" ){ //&& role!=
@@ -112,6 +106,7 @@
 	      	{ name: "```!sa breath```", value: 'Breath wizard, to calm yourself.', inline: false },
             { name: "```!sa cat```", value: 'Cute cat image attacks.', inline: false },
             { name: "```!sa selfcare```", value: 'Simple self care routine for you.', inline: false },
+            { name: "```!sa helpmisc```", value: 'More commands.', inline: false },
             { name: '\u200B', value: '\u200B' },
             { name: "Other Useful Links", value: '\u200B', inline: false },
             { name: "Instagram", value: " [@projectmysa](https://www.instagram.com/projectmysa/)", inline : true},

@@ -20,6 +20,7 @@ module.exports = (bot, msg) => {
 	      	{ name: "``!sa master``", value: 'Random fact about who make me.', inline: false },
             { name: "``!sa ping``", value: 'How far are we?', inline: false },
             { name: "``!sa coinflip``", value: 'Heads/Tails', inline: false },
+            { name: "``!sa poll <statememt>``", value: 'Make a poll', inline: false },
 
             { name: "``!sa help``", value: 'For complete help list', inline: false },
 	      
