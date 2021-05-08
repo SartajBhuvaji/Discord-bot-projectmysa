@@ -13,6 +13,8 @@
  const { get, copy } = require("snekfetch"); 
  const permission = require('./commands/moderation/permission');
 const pokeLove = require('./commands/pokeLove');
+const easteregg = require('./commands/easteregg');
+const eastereggworker = require('./commands/easteregg-worker');
 
  bot.on('ready',()=>{
     console.log('Bot Online');
@@ -110,7 +112,7 @@ const pokeLove = require('./commands/pokeLove');
 	      	{ name: "```!sa breath```", value: 'Breath wizard, to calm yourself.', inline: false },
             { name: "```!sa cat```", value: 'Cute cat image attacks.', inline: false },
             { name: "```!sa selfcare```", value: 'Simple self care routine for you.', inline: false },
-            { name: "```!sa helpmod```", value: 'Moderator commands help', inline: false },
+           
             { name: "```!sa helpmisc```", value: 'More commands.', inline: false },
             
             { name: '\u200B', value: '\u200B' },
@@ -124,6 +126,14 @@ const pokeLove = require('./commands/pokeLove');
       if(msg.content === '!sa helpmisc'){
          helpmisc(bot,msg)
       }
+      if(msg.content === '!sa easteregg'){
+         easteregg(bot,msg)
+      }
+      var array = msg.content.substring().split(' ');
+      if(array[0]==="!sa" && array[1]==="easter" ){
+         eastereggworker(bot,msg)
+      }
+
       if(msg.content === '!sa helpmod'){
         if(permission(bot,msg)){
          msg.reply("I have sent you a DM of moderator commands."); 
