@@ -11,6 +11,8 @@
  const helpmisc = require('./commands/helpmisc.js')
  const poll = require('./commands/poll.js')
  const { get, copy } = require("snekfetch"); 
+ const permission = require('./commands/moderation/permission');
+const pokeLove = require('./commands/pokeLove');
 
  bot.on('ready',()=>{
     console.log('Bot Online');
@@ -38,9 +40,7 @@
            
 	      )
          .setFooter('Mysa- Project Mental Health', 'attachment://logo.png')
-        // .react(`✅`);
          member.send(exampleEmbed);
-    //console.log(member);
  })
 
  bot.on('message', msg=>{
@@ -62,8 +62,6 @@
         msg.reply(facts[randomNum])       
      }
      if(msg.content === "!sa ping"){
-     
-    // console.log(msg.content[1]);
       const timeTaken =  msg.createdTimestamp - Date.now();
       msg.reply(`Pong! This message had a latency of ${timeTaken}ms.`);            
      }
@@ -74,6 +72,12 @@
      }     
      if(msg.content.substring().split(" ")[0] === "!sa" &&msg.content.substring().split(" ")[1]=== "poll"){
       poll(bot,msg);
+     }
+     if(msg.content.substring().split(" ")[0] === "!sa" &&msg.content.substring().split(" ")[1]=== "poke"){
+        pokeLove(bot,msg)
+     }
+     if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "sendlove"){
+      pokeLove(bot,msg)
      }
 
      if(msg.content === "!sa getrole" ){ //&& role!=
@@ -106,7 +110,9 @@
 	      	{ name: "```!sa breath```", value: 'Breath wizard, to calm yourself.', inline: false },
             { name: "```!sa cat```", value: 'Cute cat image attacks.', inline: false },
             { name: "```!sa selfcare```", value: 'Simple self care routine for you.', inline: false },
+            { name: "```!sa helpmod```", value: 'Moderator commands help', inline: false },
             { name: "```!sa helpmisc```", value: 'More commands.', inline: false },
+            
             { name: '\u200B', value: '\u200B' },
             { name: "Other Useful Links", value: '\u200B', inline: false },
             { name: "Instagram", value: " [@projectmysa](https://www.instagram.com/projectmysa/)", inline : true},
@@ -118,7 +124,15 @@
       if(msg.content === '!sa helpmisc'){
          helpmisc(bot,msg)
       }
-
+      if(msg.content === '!sa helpmod'){
+        if(permission(bot,msg)){
+         msg.reply("I have sent you a DM of moderator commands."); 
+         }
+         else {
+           // msg.delete();
+            msg.reply("\nTo ban people use !sa .....\noops!\nyou dont seem to be a moderator!!\nCommand not permitted"); 
+         }
+      }
 
 
       if(msg.content === `!sa talk`){
@@ -203,6 +217,5 @@
           }
         });
      }
-     //
  })
  bot.login(token);

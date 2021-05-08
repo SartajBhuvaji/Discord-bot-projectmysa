@@ -21,12 +21,14 @@ module.exports = (bot, msg) => {
             { name: "``!sa ping``", value: 'How far are we?', inline: false },
             { name: "``!sa coinflip``", value: 'Heads/Tails', inline: false },
             { name: "``!sa poll <statememt>``", value: 'Make a poll', inline: false },
+            { name: "```!sa helpmod```", value: 'Moderator commands help', inline: false },
+            { name: "```!sa easteregg```", value: '??????', inline: false },
+            { name: "``!sa hug @member``", value: 'Poke a user', inline: false },
+            { name: "``!sa sendlove @member``", value: 'Show your love', inline: false },
 
             { name: "``!sa help``", value: 'For complete help list', inline: false },
-	      
+
             { name: '\u200B', value: '\u200B' },
-            { name: "Other Useful Links", value: '\u200B', inline: false },
-            { name: "Instagram", value: " [@projectmysa](https://www.instagram.com/projectmysa/)", inline : true},
 	      )
          .setFooter('Mysa- Project Mental Health', 'attachment://logo.png');
           msg.reply(exampleEmbed);
