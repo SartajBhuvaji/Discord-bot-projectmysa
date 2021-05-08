@@ -1,5 +1,6 @@
  const Discord = require('discord.js');
  const config = require("./config.json");
+ //const ytdl = require('ytdl-core-discord');
  const bot = new Discord.Client();
  const token = config.BOT_TOKEN;
  const prefix = config.PREFIX;
@@ -7,7 +8,9 @@
  const confessions  = config.confessionsToken; //TO
  const privateMessage = require('./private-message');
  const selfAccesseedRole = require('./selfAccessedRole.js');
- const { get } = require("snekfetch"); 
+ const helpmisc = require('./commands/helpmisc.js')
+ const poll = require('./commands/poll.js')
+ const { get, copy } = require("snekfetch"); 
 
  bot.on('ready',()=>{
     console.log('Bot Online');
@@ -41,18 +44,26 @@
  })
 
  bot.on('message', msg=>{
-    if(msg.content === "!sa master"){
-       console.log('In pvt msg')
-     privateMessage(bot,'!sa personalmsg','Pong')
-   }
+   // if(msg.content === "!sa master"){
+      // console.log('In pvt msg')
+     //privateMessage(bot,'!sa personalmsg','Pong')
+   //}
      if (msg.author.bot) return;
      if(msg.content === "!sa hi"){
         msg.reply('Hello from the local server')       
      }
      if(msg.content === "!sa master"){
-        msg.reply('I was made by Sartaj')       
+      const randomNum = (Math.floor(Math.random()* 5)+1).toString(); // random no 1-10 
+      const facts =["He likes green apples more than red",
+                    "He lovess coding",
+                    "Hi, Sub to PewdiePie,go",
+                    "He loves you all"                  
+                  ];
+        msg.reply(facts[randomNum])       
      }
      if(msg.content === "!sa ping"){
+     
+    // console.log(msg.content[1]);
       const timeTaken =  msg.createdTimestamp - Date.now();
       msg.reply(`Pong! This message had a latency of ${timeTaken}ms.`);            
      }
@@ -61,11 +72,27 @@
       if(randomNum ==='1') msg.reply("Heads"); 
       else  msg.reply("Tails"); 
      }
+     //let args = msg.content.substring().split(" ")[0];
+     
+     if(msg.content.substring().split(" ")[0] === "!sa" &&msg.content.substring().split(" ")[1]=== "poll"){
+        //console.log("In poll")
+       
+      poll(bot,msg);
+
+
+     }
+
      if(msg.content === "!sa getrole" ){ //&& role!=
-      //msg.reply("Tails"); 
-      msg.reply(selfAccesseedRole(bot,"!sa getrole"))
-   
+      // msg.author.send("WIP"); 
+     selfAccesseedRole(bot,msg,"!sa getrole")
+    // qna(bot,msg,"!sa getrole")
+     //msg.author.send(selfAccesseedRole(bot,msg,"!sa getrole","1"));
+     // setTimeout(() => {console.log("World!"); }, 10000);
+     //msg.author.send(selfAccesseedRole(bot,msg,"!sa getrole","2"))
+    // msg.author.send(selfAccesseedRole(bot,msg,"!sa getrole"))
       }
+      
+
      //Heal bot
      // bug: gif file not loading
       if(msg.content=== "!sa help"){
@@ -93,6 +120,12 @@
          .setFooter('Mysa- Project Mental Health', 'attachment://logo.png');
           msg.reply(exampleEmbed);
       }
+      if(msg.content === '!sa helpmisc'){
+         helpmisc(bot,msg)
+      }
+
+
+
       if(msg.content === `!sa talk`){
          msg.reply('Hi, I have messaged the support group. You should receive a new message soon. \nStay Strong\nWe love you :heart: ');
          msg.react(`✅`);
@@ -108,7 +141,7 @@
         });     
       }
       if(msg.content === `!sa breath`){
-         const randomNum = 1;
+        const randomNum = 1;
         //const randomNum = (Math.floor(Math.random()* 10)+1).toString(); // random no 1-10  
          const breath = "breath"+`${randomNum}`+".gif"
          const ballembed = new Discord.MessageEmbed()
