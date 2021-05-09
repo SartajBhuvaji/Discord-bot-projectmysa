@@ -3,9 +3,9 @@
  //const ytdl = require('ytdl-core-discord');
  const bot = new Discord.Client();
  const token = config.BOT_TOKEN;
- const prefix = config.PREFIX;
  const confessHere  = config.confessHereToken; //FROM
  const confessions  = config.confessionsToken; //TO
+ const MODCHAT_ID  = config.MODCHAT_ID; 
  const privateMessage = require('./private-message');
  const selfAccesseedRole = require('./selfAccessedRole.js');
  const helpmisc = require('./commands/helpmisc.js')
@@ -16,7 +16,8 @@ const pokeLove = require('./commands/pokeLove');
 const easteregg = require('./commands/easteregg');
 const eastereggworker = require('./commands/easteregg-worker');
 const modcommands = require('./commands/modcommands');
-
+const kick = require('./commands/moderation/kick');
+const ban = require('./commands/moderation/ban');
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
@@ -39,7 +40,7 @@ const modcommands = require('./commands/modcommands');
 
             { name: "Other Useful Links", value: '\u200B', inline: false },
             { name: "Instagram", value: " [@projectmysa](https://www.instagram.com/projectmysa/)", inline : true},
-            { name: "Coded by", value: " @SartajBhuvaji", inline : true}
+            { name: "Coded by", value: " [@SartajBhuvaji](https://github.com/SartajBhuvaji)", inline : true}
            
 	      )
          .setFooter('Mysa- Project Mental Health', 'attachment://logo.png')
@@ -56,17 +57,24 @@ const modcommands = require('./commands/modcommands');
         msg.reply('Hello from the local server')       
      }
      if(msg.content === "!sa master"){
-      const randomNum = (Math.floor(Math.random()* 5)+1).toString(); // random no 1-10 
-      const facts =["He likes green apples more than red",
-                    "He lovess coding",
-                    "Hi, Sub to PewdiePie,go",
-                    "He loves you all"                  
-                  ];
-        msg.reply(facts[randomNum])       
+      const facts =["He likes green apples more than red.",
+      "He lovess coding.",
+      "Coffee is his life",
+      "He loves you all."                  
+    ];
+        try{
+      const randomNum = (Math.floor(Math.random()* 4)+1).toString(); // random no 1-10 
+        msg.reply(facts[randomNum])   
+               }catch(err){
+                  msg.reply("He's still working") 
+               }
      }
      if(msg.content === "!sa ping"){
       const timeTaken =  msg.createdTimestamp - Date.now();
       msg.reply(`Pong! This message had a latency of ${timeTaken}ms.`);            
+     }
+     if(msg.content === "!sa weather"){
+      weather();            
      }
      if(msg.content === "!sa coinflip"){
       const randomNum = (Math.floor(Math.random()* 2)+1).toString();
@@ -81,19 +89,23 @@ const modcommands = require('./commands/modcommands');
      }
      if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "sendlove"){
       pokeLove(bot,msg)
-     }
+     }if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "kick-y" && msg.channel.id  === MODCHAT_ID){
+       if(permission(bot,msg)) kick(bot,msg)         
+   }
+   if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "ban-y-y" && msg.channel.id  === MODCHAT_ID){
+   if(permission(bot,msg)) ban(bot,msg)         
+   }
 
      if(msg.content === "!sa getrole" ){ //&& role!=
-      // msg.author.send("WIP"); 
-     selfAccesseedRole(bot,msg,"!sa getrole")
+       msg.author.send("WIP"); 
+     //selfAccesseedRole(bot,msg,"!sa getrole")
     // qna(bot,msg,"!sa getrole")
      //msg.author.send(selfAccesseedRole(bot,msg,"!sa getrole","1"));
      // setTimeout(() => {console.log("World!"); }, 10000);
      //msg.author.send(selfAccesseedRole(bot,msg,"!sa getrole","2"))
     // msg.author.send(selfAccesseedRole(bot,msg,"!sa getrole"))
       }
-      
-
+   
      //Heal bot
      // bug: gif file not loading
       if(msg.content=== "!sa help"){

@@ -15,8 +15,8 @@ module.exports = (bot,msg)=>{
             { name: 'Moderator commands', value: "My prefix is ``!sa``"},
             //{ name: '\u200B', value: '\u200B' },
             { name: "``!sa warn <member>``", value: 'To warn a member', inline: false },
-	      	{ name: "``!sa ban <member>``", value: 'To ban a member', inline: false },
-            { name: "``!sa kick <member>``", value: 'To kick a member', inline: false },
+            { name: "``!sa kick-y <member>``", value: 'To kick a member', inline: false },
+	      	  { name: "``!sa ban-y-y <member>``", value: 'To ban a member', inline: false },      
 	      	{ name: '\u200B', value: '\u200B' },
 	      )
          .setFooter('Mysa- Project Mental Health', 'attachment://logo.png');
