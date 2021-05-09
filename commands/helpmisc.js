@@ -1,7 +1,5 @@
-
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-
 module.exports = (bot, msg) => {
     if(msg.content ==="!sa helpmisc"){
         //msg.reply('made to misc help')
@@ -32,9 +30,6 @@ module.exports = (bot, msg) => {
 	      )
          .setFooter('Mysa- Project Mental Health', 'attachment://logo.png');
           msg.reply(exampleEmbed);
-
-
     }
-
 
 }

@@ -1,6 +1,3 @@
-const { MessageReaction } = require("discord.js");
-const Discord = require('discord.js');
-const { merge } = require("snekfetch");
 module.exports = (bot,msg)=>{ 
     const member = msg.mentions.users.first();
     if(member){
@@ -11,9 +8,7 @@ module.exports = (bot,msg)=>{
         }
         memberTarget.kick();
         msg.channel.send("User has been kicked");
-
     }else{
         msg.channel.send("User not mentioned.")
-    }
-        
     }   
+    }  

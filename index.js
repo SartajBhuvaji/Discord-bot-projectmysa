@@ -7,7 +7,7 @@
  const confessions  = config.confessionsToken; //TO
  const MODCHAT_ID  = config.MODCHAT_ID; 
  const privateMessage = require('./private-message');
- const selfAccesseedRole = require('./selfAccessedRole.js');
+ //const selfAccesseedRole = require('./selfAccessedRole.js');
  const helpmisc = require('./commands/helpmisc.js')
  const poll = require('./commands/poll.js')
  const { get, copy } = require("snekfetch"); 
@@ -18,6 +18,7 @@ const eastereggworker = require('./commands/easteregg-worker');
 const modcommands = require('./commands/modcommands');
 const kick = require('./commands/moderation/kick');
 const ban = require('./commands/moderation/ban');
+const warn = require('./commands/moderation/warn');
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
@@ -89,7 +90,11 @@ const ban = require('./commands/moderation/ban');
      }
      if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "sendlove"){
       pokeLove(bot,msg)
-     }if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "kick-y" && msg.channel.id  === MODCHAT_ID){
+     }
+     if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "warn"){
+      if(permission(bot,msg))  warn(bot,msg)         
+      }
+     if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "kick-y" && msg.channel.id  === MODCHAT_ID){
        if(permission(bot,msg)) kick(bot,msg)         
    }
    if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "ban-y-y" && msg.channel.id  === MODCHAT_ID){
