@@ -15,6 +15,7 @@
 const pokeLove = require('./commands/pokeLove');
 const easteregg = require('./commands/easteregg');
 const eastereggworker = require('./commands/easteregg-worker');
+const modcommands = require('./commands/modcommands');
 
  bot.on('ready',()=>{
     console.log('Bot Online');
@@ -111,14 +112,13 @@ const eastereggworker = require('./commands/easteregg-worker');
 	      	{ name: "``!sa talk``", value: 'Find someone to talk to.\n', inline: false },
 	      	{ name: "```!sa breath```", value: 'Breath wizard, to calm yourself.', inline: false },
             { name: "```!sa cat```", value: 'Cute cat image attacks.', inline: false },
-            { name: "```!sa selfcare```", value: 'Simple self care routine for you.', inline: false },
-           
+            { name: "```!sa selfcare```", value: 'Simple self care routine for you.', inline: false }, 
             { name: "```!sa helpmisc```", value: 'More commands.', inline: false },
-            
+     
             { name: '\u200B', value: '\u200B' },
             { name: "Other Useful Links", value: '\u200B', inline: false },
             { name: "Instagram", value: " [@projectmysa](https://www.instagram.com/projectmysa/)", inline : true},
-            { name: "Coded by", value: " @SartajBhuvaji", inline : true}
+            { name: "Coded by", value: " [@SartajBhuvaji](https://github.com/SartajBhuvaji)", inline : true}
 	      )
          .setFooter('Mysa- Project Mental Health', 'attachment://logo.png');
           msg.reply(exampleEmbed);
@@ -137,6 +137,7 @@ const eastereggworker = require('./commands/easteregg-worker');
       if(msg.content === '!sa helpmod'){
         if(permission(bot,msg)){
          msg.reply("I have sent you a DM of moderator commands."); 
+         modcommands(bot,msg)
          }
          else {
            // msg.delete();

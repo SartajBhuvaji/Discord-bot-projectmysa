@@ -1,16 +1,15 @@
 const { MessageReaction } = require("discord.js");
 const Discord = require('discord.js');
 const { merge } = require("snekfetch");
-
 const fs = require('fs');
 const path = require('path');
-let rawdata = fs.readFileSync(path.resolve(__dirname, 'eastereggdata.json'));
-let data = JSON.parse(rawdata);
 
-var counter1 = data.counter1;
-var counter2 = data.counter1;
-var counter3 = data.counter3;
 module.exports = (bot,msg)=>{ 
+  let rawdata = fs.readFileSync(path.resolve(__dirname, 'eastereggdata.json'));
+  let data = JSON.parse(rawdata);
+  var counter1 = data.counter1;
+  var counter2 = data.counter2;
+  var counter3 = data.counter3;
 
     const attachment = new Discord.MessageAttachment('./media/logo.png', 'logo.png');
     const exampleEmbed = new Discord.MessageEmbed()
@@ -18,7 +17,7 @@ module.exports = (bot,msg)=>{
      .setTitle('Projectmysa')
      .setURL('https://www.instagram.com/projectmysa/')
      //.setAuthor('Sartaj', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-     .setDescription('Hunting for easter eggs?')
+     .setDescription('ooooooo Hunting for easter eggs?\n Search answers to any of the following question. \nAll The Best!')
     .attachFiles(attachment)
      .setThumbnail('attachment://logo.png')
      .addFields(
@@ -31,7 +30,5 @@ module.exports = (bot,msg)=>{
      )
     .setFooter('Mysa- Project Mental Health', 'attachment://logo.png');
      msg.reply(exampleEmbed);
-
-     
     }
     

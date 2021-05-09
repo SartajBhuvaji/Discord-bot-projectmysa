@@ -23,7 +23,7 @@ module.exports = (bot, msg) => {
             { name: "``!sa poll <statememt>``", value: 'Make a poll', inline: false },
             { name: "```!sa helpmod```", value: 'Moderator commands help', inline: false },
             { name: "```!sa easteregg```", value: '??????', inline: false },
-            { name: "``!sa hug @member``", value: 'Poke a user', inline: false },
+            { name: "``!sa poke @member``", value: 'Poke a user', inline: false },
             { name: "``!sa sendlove @member``", value: 'Show your love', inline: false },
 
             { name: "``!sa help``", value: 'For complete help list', inline: false },
