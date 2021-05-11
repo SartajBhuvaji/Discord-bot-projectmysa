@@ -16,11 +16,11 @@ module.exports = (bot,msg)=>{
           .attachFiles(attachment)
 	      .setThumbnail('attachment://logo.png')
           .addFields(
-            { name: 'Please notify at least one more moderator before you kick/ban a member.\nModerator commands:', value: "My prefix is ``!sa``"},
+            { name: 'Please notify at least one more moderator before you kick/ban a member.\n\nBelow listed commands ```will be deleted once executed``` when sent in any text channel \nModerator commands:', value: "My prefix is ``!sa``"},
             //{ name: '\u200B', value: '\u200B' },
             { name: "``!sa warn <member>``", value: '⚠️ To warn a member', inline: false },
-            { name: "``!sa kick-y <member>``", value: '🚪 To kick a member', inline: false },
-	      	  { name: "``!sa ban-y-y <member>``", value: '🚫 To ban a member', inline: false },    
+            { name: "``!sa kick <member>``", value: '🚪 To kick a member', inline: false },
+	      	  { name: "``!sa ban <member>``", value: '🚫 To ban a member', inline: false },    
             { name: "Please notify ", value: "#moderator-chat about the incident.", inline: true },    
                
 	      	{ name: '\u200B', value: '\u200B' }

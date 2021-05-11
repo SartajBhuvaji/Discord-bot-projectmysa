@@ -39,10 +39,11 @@ const music = require('./commands/music');
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
-    bot.user.setActivity(' ig/@projectmysa', ({type: "WATCHING"}))
+    bot.user.setActivity(' !sa help | @projectmysa', ({type: "PLAYING"}))
 
  })
 //needs special permission in discord/developer/application/bot ->Privileged Gateway Intents & SERVER MEMBERS INTENT
+//message new members
  bot.on('guildMemberAdd',(member)=>{
     const attachment = new Discord.MessageAttachment('./media/logo.png', 'logo.png');
          const exampleEmbed = new Discord.MessageEmbed()
@@ -55,21 +56,16 @@ const music = require('./commands/music');
       	.addFields(
             { name: 'How to get started ?', value: "My prefix is ``!sa`` \n Type ``!sa help`` in any text channel to learn more."},
             { name: '\u200B', value: '\u200B' },
-
             { name: "Other Useful Links", value: '\u200B', inline: false },
             { name: "Instagram", value: " [@projectmysa](https://www.instagram.com/projectmysa/)", inline : true},
-            { name: "Coded by", value: " [@SartajBhuvaji](https://github.com/SartajBhuvaji)", inline : true}
-           
+            { name: "Coded by", value: " [@SartajBhuvaji](https://github.com/SartajBhuvaji)", inline : true}         
 	      )
          .setFooter('Mysa- Project Mental Health', 'attachment://logo.png')
          member.send(exampleEmbed);
  })
 
  bot.on('message', msg=>{
-   // if(msg.content === "!sa master"){
-      // console.log('In pvt msg')
-     //privateMessage(bot,'!sa personalmsg','Pong')
-   //}
+    //basic commands
      if (msg.author.bot) return;
      if(msg.content === "!sa hi"){
         msg.reply('Hello from the local server 👋🏻')       
@@ -91,9 +87,6 @@ const music = require('./commands/music');
       const timeTaken =  msg.createdTimestamp - Date.now();
       msg.reply(`Pong! This message had a latency of ${timeTaken}ms.`);            
      }
-     if(msg.content === "!sa weather"){
-      weather();            
-     }
      if(msg.content === "!sa coinflip"){
       const randomNum = (Math.floor(Math.random()* 2)+1).toString();
       if(randomNum ==='1') msg.reply("Heads"); 
@@ -110,33 +103,32 @@ const music = require('./commands/music');
       poll(bot,msg);
      }
      if(msg.content.substring().split(" ")[0] === "!sa" &&msg.content.substring().split(" ")[1]=== "poke"){
-        pokeLove(bot,msg)
+      pokeLove(bot,msg)
      }
      if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "sendlove"){
       pokeLove(bot,msg)
      }
      if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "warn"){
-      if(permission(bot,msg))  warn(bot,msg)         
+      if(permission(bot,msg)) warn(bot,msg)         
+     }
+     if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "kick" ){
+      if(permission(bot,msg)) kick(bot,msg)         
       }
-     if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "kick-y" && msg.channel.id  === MODCHAT_ID){
-       if(permission(bot,msg)) kick(bot,msg)         
-   }
-   if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "ban-y-y" && msg.channel.id  === MODCHAT_ID){
-   if(permission(bot,msg)) ban(bot,msg)         
-   }
+      if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "ban" ){
+       if(permission(bot,msg)) ban(bot,msg)         
+      }
 
      if(msg.content === "!sa getrole" ){ //&& role!=
        msg.author.send("WIP"); 
      //selfAccesseedRole(bot,msg,"!sa getrole")
-    // qna(bot,msg,"!sa getrole")
+     // qna(bot,msg,"!sa getrole")
      //msg.author.send(selfAccesseedRole(bot,msg,"!sa getrole","1"));
      // setTimeout(() => {console.log("World!"); }, 10000);
      //msg.author.send(selfAccesseedRole(bot,msg,"!sa getrole","2"))
-    // msg.author.send(selfAccesseedRole(bot,msg,"!sa getrole"))
+     // msg.author.send(selfAccesseedRole(bot,msg,"!sa getrole"))
       }
    
-     //Heal bot
-     // bug: gif file not loading
+     //primary command
       if(msg.content=== "!sa help"){
          const attachment = new Discord.MessageAttachment('./media/logo.png', 'logo.png');
          const exampleEmbed = new Discord.MessageEmbed()
@@ -144,7 +136,7 @@ const music = require('./commands/music');
 	      .setTitle('Projectmysa')
 	      .setURL('https://www.instagram.com/projectmysa/')
 	      //.setAuthor('Sartaj', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	      .setDescription('Hi, ✨projectmysa bot is a fun and easy-to-use Mental Health Support Bot for confessions, help, hugs, and more!❤️')
+	      .setDescription('Hi, ✨projectmysa bot is a fun and easy-to-use Mental Health Support Bot for confessions, help, hugs, and more! ❤️')
          .attachFiles(attachment)
 	      .setThumbnail('attachment://logo.png')
       	.addFields(
@@ -181,12 +173,12 @@ const music = require('./commands/music');
          modcommands(bot,msg)
          }
          else {
-           // msg.delete();
             msg.reply("\nTo ban people use !sa .....\noops!\nyou dont seem to be a moderator!!\nCommand not permitted"); 
          }
       }
 
-
+      //Heal bot
+      // bug: gif file not loading
       if(msg.content === `!sa talk`){
          msg.reply('Hi, I have messaged the support group. You should receive a new message soon. \nStay Strong\nWe love you :heart: ');
          msg.react(`✅`);
@@ -248,13 +240,14 @@ const music = require('./commands/music');
             exampleEmbed.addFields(
                { name: '• Call a Friend', value: "\u200B"},
             )
-         }
+         }//add more cases
          exampleEmbed.setFooter('Mysa- Project Mental Health', 'attachment://logo.png');
           msg.reply(exampleEmbed);
       }
-      ///heal bot-end
-     //CONFESSION BOT
-     if(msg.channel.id  === confessHere){ //identify #confess-here 
+      //
+
+     //confession
+     if(msg.channel.id  === confessHere){
          const newMsg = msg;
          msg.delete();
          const toConfessions = bot.channels.cache.find(channel =>channel.id === confessions);
