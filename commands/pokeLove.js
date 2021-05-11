@@ -1,5 +1,6 @@
 //GAME : POKE/SEND HUG TO A MEMBER
-//COMMAND : !sa sendlove <member>, !sa poke <member>
+//COMMAND : !sa sendlove <@member>, !sa poke <@member>
+
 const Discord = require('discord.js');
 const { merge } = require("snekfetch");
 module.exports = (bot,msg)=>{  

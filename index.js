@@ -12,6 +12,7 @@
                    EASTEREGGDATA.JSON - DATA FOR EASTEREGG-WORKER.JS
                    README.MD - GITHUB README
 BY               : SARTAJ    
+GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
 
  */
  const Discord = require('discord.js');
