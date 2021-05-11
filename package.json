@@ -1,6 +1,6 @@
 {
   "name": "projectmysa-bot",
-  "version": "1.2.4",
+  "version": "7.1.0",
   "description": "Discord bot for projectmysa",
   "main": "index.js",
   "scripts": {
