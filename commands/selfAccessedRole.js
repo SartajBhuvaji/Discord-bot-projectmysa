@@ -1,3 +1,5 @@
+//INCOMPLETE
+//REMOVE LATER
 const { DiscordAPIError } = require("discord.js")
 /*
 module.exports = (bot,msg,message)=>{

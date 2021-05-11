@@ -1,3 +1,5 @@
+//GAME : CREATE A POLL
+//COMMAND : !sa poll <statement>
 const { MessageReaction } = require("discord.js");
 const Discord = require('discord.js');
 module.exports = (bot,msg)=>{

@@ -1,3 +1,4 @@
+//EMBEDD : !sa easteregg
 const Discord = require('discord.js');
 const { merge } = require("snekfetch");
 const fs = require('fs');

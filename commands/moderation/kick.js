@@ -1,3 +1,9 @@
+/*
+PERMA KICK A MEMBER : 
+ACCESS : MOD, ADMIN
+COMMAND : !sa kick <@member>
+*/
+
 module.exports = (bot,msg)=>{ 
     const member = msg.mentions.users.first();
     if(member){

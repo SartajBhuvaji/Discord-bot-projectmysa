@@ -1,12 +1,27 @@
+ /*
+ PROJECT NODE JS : PROJECT MY-SA
+ DESCRIPTION     : Project Mysa is a Mental Health Project aimed at building a community, 
+                   stimulating discourse by creating a safe space, breaking taboos, & helping you love yourself'
+ OTHER FILES     : COMMANDS : ALL JS COMMANDS
+                   MODERATION: PATH :(COMMANDS/MODERATION): MODERATOR SPECIFIC COMMANDS
+                   MEDIA : IMAGE/GIF FILES
+                   NODE_MODULES : JS LIBRARIES 
+                   CONFIG.JSON - KEYS 
+                   PACKAGE-LOCK.JSON - PACKAGE DETAILS
+                   PACKAGE.JSON - PACKAGE DETAILS
+                   EASTEREGGDATA.JSON - DATA FOR EASTEREGG-WORKER.JS
+                   README.MD - GITHUB README
+BY               : SARTAJ    
+
+ */
  const Discord = require('discord.js');
  const config = require("./config.json");
  //const ytdl = require('ytdl-core-discord');
  const bot = new Discord.Client();
  const token = config.BOT_TOKEN;
- const confessHere  = config.confessHereToken; //FROM
- const confessions  = config.confessionsToken; //TO
+ const confessHere  = config.confessHereToken; 
+ const confessions  = config.confessionsToken;
  const MODCHAT_ID  = config.MODCHAT_ID; 
- const privateMessage = require('./private-message');
  //const selfAccesseedRole = require('./selfAccessedRole.js');
  const helpmisc = require('./commands/helpmisc.js')
  const poll = require('./commands/poll.js')
@@ -86,8 +101,8 @@ const music = require('./commands/music');
      if(msg.content.substring().split(" ")[0] === "!sa" && (msg.content.substring().split(" ")[1]=== "play")||(msg.content.substring().split(" ")[1]=== "pause")||(msg.content.substring().split(" ")[1]=== "stop")||(msg.content.substring().split(" ")[1]=== "skip")){
       if(permission(bot,msg)) music(bot,msg);
       else{
-         msg.reply("Look If you had One shot, Or, one opportunity To seize everything you ever wanted, In one moment..."); 
-         msg.reply("This is weird... I guess you dont the permission to use this commad"); 
+         msg.channel.send("Look If you had One shot, Or, one opportunity To seize everything you ever wanted, In one moment..."); 
+         msg.channel.send("This is weird... I guess you dont the permission to use this commad"); 
       }
      } 
      if(msg.content.substring().split(" ")[0] === "!sa" &&msg.content.substring().split(" ")[1]=== "poll"){

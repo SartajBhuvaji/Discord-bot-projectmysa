@@ -1,3 +1,7 @@
+/*
+EASTEREGG/ HUNT GAME FOR A SPECIAL ROLE
+COMMAND : !sa easter 1/2/3 <answer>
+*/
 const { MessageReaction } = require("discord.js");
 const Discord = require('discord.js');
 const { merge } = require("snekfetch");

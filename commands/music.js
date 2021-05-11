@@ -1,3 +1,9 @@
+8/*
+PLAY MUSIC IN VOICE CHAT
+ACCESS : MOD, ADMIN
+COMMAND : !sa play <https://<link>>, !sa skip, !sa stop
+*/
+
 const Discord = require("discord.js");
 const { prefix, token } = require("../config");
 const ytdl = require("ytdl-core");
@@ -120,4 +126,6 @@ function play(guild, song) {
     .on("error", error => console.error(error));
   dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
   serverQueue.textChannel.send(`Start playing: **${song.title}**`);
+
+  
 }

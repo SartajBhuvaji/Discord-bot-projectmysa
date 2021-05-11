@@ -1,3 +1,8 @@
+/*
+MOD COMMANDS SENT TO DM
+ACCESS : MOD
+COMMAND : !sa helpmod
+*/
 const Discord = require('discord.js');
 const { merge } = require("snekfetch");
 module.exports = (bot,msg)=>{  

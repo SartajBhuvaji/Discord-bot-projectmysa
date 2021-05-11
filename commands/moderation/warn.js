@@ -1,3 +1,9 @@
+/*
+WARN A MEMBER : 
+ACCESS : MOD, ADMIN
+COMMAND : !sa warn <@member>
+*/
+
 module.exports = (bot,msg)=>{ 
     const member = msg.mentions.users.first();
     const newmsg = msg;
