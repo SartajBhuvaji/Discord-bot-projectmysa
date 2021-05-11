@@ -19,6 +19,7 @@ const modcommands = require('./commands/modcommands');
 const kick = require('./commands/moderation/kick');
 const ban = require('./commands/moderation/ban');
 const warn = require('./commands/moderation/warn');
+const music = require('./commands/music');
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
@@ -64,7 +65,7 @@ const warn = require('./commands/moderation/warn');
       "He loves you all."                  
     ];
         try{
-      const randomNum = (Math.floor(Math.random()* 5)+1).toString(); // random no 1-10 
+      const randomNum = (Math.floor(Math.random()* 5)+1).toString(); 
         msg.reply(facts[randomNum])   
                }catch(err){
                   msg.reply("He's still working 👨‍💻") 
@@ -82,6 +83,13 @@ const warn = require('./commands/moderation/warn');
       if(randomNum ==='1') msg.reply("Heads"); 
       else  msg.reply("Tails"); 
      }     
+     if(msg.content.substring().split(" ")[0] === "!sa" && (msg.content.substring().split(" ")[1]=== "play")||(msg.content.substring().split(" ")[1]=== "pause")||(msg.content.substring().split(" ")[1]=== "stop")||(msg.content.substring().split(" ")[1]=== "skip")){
+      if(permission(bot,msg)) music(bot,msg);
+      else{
+         msg.reply("Look If you had One shot, Or, one opportunity To seize everything you ever wanted, In one moment..."); 
+         msg.reply("This is weird... I guess you dont the permission to use this commad"); 
+      }
+     } 
      if(msg.content.substring().split(" ")[0] === "!sa" &&msg.content.substring().split(" ")[1]=== "poll"){
       poll(bot,msg);
      }
