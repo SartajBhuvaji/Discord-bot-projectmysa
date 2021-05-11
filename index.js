@@ -55,19 +55,19 @@ const warn = require('./commands/moderation/warn');
    //}
      if (msg.author.bot) return;
      if(msg.content === "!sa hi"){
-        msg.reply('Hello from the local server')       
+        msg.reply('Hello from the local server 👋🏻')       
      }
      if(msg.content === "!sa master"){
-      const facts =["He likes green apples more than red.",
+      const facts =["He likes green apples🍏 more than red🍎.",
       "He lovess coding.",
       "Coffee is his life",
       "He loves you all."                  
     ];
         try{
-      const randomNum = (Math.floor(Math.random()* 4)+1).toString(); // random no 1-10 
+      const randomNum = (Math.floor(Math.random()* 5)+1).toString(); // random no 1-10 
         msg.reply(facts[randomNum])   
                }catch(err){
-                  msg.reply("He's still working") 
+                  msg.reply("He's still working 👨‍💻") 
                }
      }
      if(msg.content === "!sa ping"){
@@ -120,11 +120,11 @@ const warn = require('./commands/moderation/warn');
 	      .setTitle('Projectmysa')
 	      .setURL('https://www.instagram.com/projectmysa/')
 	      //.setAuthor('Sartaj', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	      .setDescription('Hi, projectmysa bot is a fun and easy-to-use Mental Health Support Bot for confessions, help, hugs, and more!')
+	      .setDescription('Hi, ✨projectmysa bot is a fun and easy-to-use Mental Health Support Bot for confessions, help, hugs, and more!❤️')
          .attachFiles(attachment)
 	      .setThumbnail('attachment://logo.png')
       	.addFields(
-            { name: 'How to find and use commands', value: "My prefix is ``!sa`` \nTo get started, please type one of the commands below."},
+            { name: 'How to find and use commands❔', value: "My prefix is ``!sa`` \nTo get started, please type one of the commands below."},
             //{ name: '\u200B', value: '\u200B' },
 	      	{ name: "``!sa talk``", value: 'Find someone to talk to.\n', inline: false },
 	      	{ name: "```!sa breath```", value: 'Breath wizard, to calm yourself.', inline: false },
@@ -207,7 +207,7 @@ const warn = require('./commands/moderation/warn');
 	      .setTitle('Projectmysa')
 	      .setURL('https://www.instagram.com/projectmysa/')
 	      //.setAuthor('Sartaj', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	      .setDescription('Hi, projectmysa bot is a fun and easy-to-use Mental Health Support Bot for confessions, help, hugs, and more!')
+	      .setDescription('Hi, ✨projectmysa bot is a fun and easy-to-use Mental Health Support Bot for confessions, help, hugs, and more!❤️')
          .attachFiles(attachment)
 	      .setThumbnail('attachment://logo.png')
 

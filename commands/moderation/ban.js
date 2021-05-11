@@ -7,7 +7,7 @@ module.exports = (bot,msg)=>{
             return;
         }
         memberTarget.ban();
-        msg.channel.send("User has been banned");
+        msg.channel.send("🚫 User has been banned");
     }else{
         msg.channel.send("User not mentioned.")
     }   

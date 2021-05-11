@@ -6,7 +6,7 @@ module.exports = (bot,msg)=>{
         if (msg.mentions.users.first()) {
            msg.channel.send(`<@${msg.author.id}>` + " 👉🏻 " +` <@${msg.mentions.users.first().id}>`)
        } else {
-        msg.channel.send("You have to mention a user to poke.")
+        msg.channel.send("You have to mention a user to poke.📍")
        }
     } 
     if(msg.content.substring().split(" ")[0] === "!sa"  &&msg.content.substring().split(" ")[1] === "sendlove"){
@@ -15,11 +15,11 @@ module.exports = (bot,msg)=>{
         const hug = "hug1.png" 
         const ballembed = new Discord.MessageEmbed()
          .setColor(0x000000)
-         .setDescription(` <@${msg.mentions.users.first().id}>`+" Hugs from" +`<@${msg.author.id}>`)
+         .setDescription(` <@${msg.mentions.users.first().id}>`+" 👐 Hugs from" +`<@${msg.author.id}>`)
          .attachFiles("media/"+`${hug}`)
          msg.reply(ballembed);
         }else {
-            msg.channel.send("Menthion member, whom to send.")
+            msg.channel.send("Mention member, whom to send🕵🏻‍♂️.")
            }
     }   
 }

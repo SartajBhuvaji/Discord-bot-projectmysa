@@ -7,7 +7,7 @@ module.exports = (bot,msg)=>{
             return;
         }
         memberTarget.kick();
-        msg.channel.send("User has been kicked");
+        msg.channel.send("🚪 User has been kicked");
     }else{
         msg.channel.send("User not mentioned.")
     }   

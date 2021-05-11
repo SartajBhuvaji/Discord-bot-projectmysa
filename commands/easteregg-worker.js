@@ -28,14 +28,14 @@ module.exports = (bot,msg)=>{
         randomDigit = data.randomDigit;    
        if(array[2]==="1" && counter1!==0){
         if(counter1<=0) {
-            msg.reply("easter egg completed!!!") 
+            msg.reply("easter egg completed 🙁!!!") 
             return;}
            if(randomDigit.find(no => no  === array[3] )){ // find array 3 in data.random nos
                const newMsg = msg;
                msg.delete();
                let role = newMsg.member.guild.roles.cache.find(role => role.name === "🥚 egg hunter");
                if (role) newMsg.guild.members.cache.get(newMsg.author.id).roles.add(role);
-               newMsg.reply("@everyone look!\n"+`<@${newMsg.author.id}>` +" has found an egg!!!\nSpecial reward: role added: "+ role.name+"\nYou get to choose the server icon for 1 Week. Message a moderator for more info\n (Your answer was deleted) ")               //give user the special role
+               newMsg.reply("@everyone look!\n"+`<@${newMsg.author.id}>` +" has found an egg 🥚!!!\n🎉 Special reward: role added: "+ role.name+"\n🙌🏻 You get to choose the server icon for 1 Week🙌🏻. Message a moderator for more info\n (Your answer was deleted) ")               //give user the special role
                counter11= counter1-1;
 
                if(counter11<=0)counter1===0;
@@ -49,7 +49,7 @@ module.exports = (bot,msg)=>{
         let data = JSON.parse(rawdata); var counter1 = data.counter1;
         counter2 = data.counter2; 
         if(counter2<=0) {
-            msg.reply("easter egg completed!!!") 
+            msg.reply("easter egg completed 🙁!!!") 
             return;}
            
            if(array[3] === "csgo"){   
@@ -59,7 +59,7 @@ module.exports = (bot,msg)=>{
              msg.delete();
             let role = newMsg.member.guild.roles.cache.find(role => role.name === "🥚 egg hunter");
             if (role) newMsg.guild.members.cache.get(newMsg.author.id).roles.add(role);
-            newMsg.reply("@everyone look!\n"+`<@${newMsg.author.id}>` +" has found an egg!!!\nSpecial reward: role added: "+ role.name+"\nYou get to choose the server icon for 1 Week. Message a moderator for more info\n(Your answer was deleted) ")
+            newMsg.reply("@everyone look!\n"+`<@${newMsg.author.id}>` +" has found an egg 🥚!!!\n🎉🎉🎉 Special reward: role added: "+ role.name+"\n 🙌🏻You get to choose the server icon for 1 Week. Message a moderator for more info\n(Your answer was deleted) ")
            }
        }
        if(array[2]==="3"){
@@ -67,7 +67,7 @@ module.exports = (bot,msg)=>{
         let data = JSON.parse(rawdata);
          counter3 = data.counter3; 
        if(counter3<=0) {
-        msg.reply("easter egg completed!!!") 
+        msg.reply("easter egg completed 🙁!!!") 
         return;}{
         if(array[3] === "010121"){  
             counter33 = counter3 -1
@@ -76,7 +76,7 @@ module.exports = (bot,msg)=>{
          msg.delete();
          let role = newMsg.member.guild.roles.cache.find(role => role.name === "🥚 egg hunter");
          if (role)  newMsg.guild.members.cache.get(newMsg.author.id).roles.add(role);
-         newMsg.reply("@everyone look!\n"+`<@${newMsg.author.id}>` +" has found an egg!!!\nSpecial reward: role added: "+ role.name+"\nYou get to choose the server icon for 1 Week. Message a moderator for more info\n (Your answer was deleted) ")
+         newMsg.reply("@everyone look!\n"+`<@${newMsg.author.id}>` +" has found an 🥚!!\n 🙌🏻Special reward: role added: "+ role.name+"\n🎉🎉 You get to choose the server icon for 1 Week. Message a moderator for more info\n (Your answer was deleted) ")
         }
     }
     }
