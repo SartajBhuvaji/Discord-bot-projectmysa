@@ -20,11 +20,11 @@ module.exports = (bot, msg) => {
             { name: "``!sa coinflip``", value: 'Heads/Tails', inline: false },
             { name: "``!sa poll <statememt>``", value: 'Make a poll', inline: false },
             { name: "```!sa <play/stop/skip> <URL>```", value: 'Music commands', inline: false },
-            { name: "```!sa helpmod```", value: 'Moderator commands help', inline: false },
+            
             { name: "```!sa easteregg```", value: '??????', inline: false },
             { name: "``!sa poke @member``", value: 'Poke a user', inline: false },
             { name: "``!sa sendlove @member``", value: 'Show your love', inline: false },
-
+            { name: "```!sa helpmod```", value: 'Moderator commands help', inline: false },
             { name: "``!sa help``", value: 'For complete help list', inline: false },
 
             { name: '\u200B', value: '\u200B' },
