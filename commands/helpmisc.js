@@ -11,7 +11,7 @@ module.exports = (bot, msg) => {
 	      .setTitle('Projectmysa')
 	      .setURL('https://www.instagram.com/projectmysa/')
 	      //.setAuthor('Sartaj', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	      .setDescription('Hi, projectmysa bot is a fun and easy-to-use Mental Health Support Bot for confessions, help, hugs, and more!')
+	      .setDescription('Hi, projectmysa bot is a fun and easy-to-use Mental Health Support Bot for fun, help, hugs, and more!')
          .attachFiles(attachment)
 	      .setThumbnail('attachment://logo.png')
       	.addFields(
@@ -21,6 +21,8 @@ module.exports = (bot, msg) => {
             { name: "``!sa ping``", value: 'How far are we?', inline: false },
             { name: "``!sa coinflip``", value: 'Heads/Tails', inline: false },
             { name: "``!sa poll <statememt>``", value: 'Make a poll', inline: false },
+            { name: "``!sa fun``", value: 'Sends you link to a random fun website', inline: false },
+
             { name: "```!sa <play/stop/skip> <URL>```", value: 'Music commands', inline: false },
             
             { name: "```!sa easteregg```", value: '??????', inline: false },

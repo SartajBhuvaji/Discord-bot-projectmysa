@@ -36,6 +36,7 @@ const kick = require('./commands/moderation/kick');
 const ban = require('./commands/moderation/ban');
 const warn = require('./commands/moderation/warn');
 const music = require('./commands/music');
+const fun = require('./commands/fun.js')
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
@@ -117,6 +118,9 @@ const music = require('./commands/music');
       if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "ban" ){
        if(permission(bot,msg)) ban(bot,msg)         
       }
+      if(msg.content === "!sa fun"){
+          fun(bot,msg)         
+        }
 
      if(msg.content === "!sa getrole" ){ //&& role!=
        msg.author.send("WIP"); 
