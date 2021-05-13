@@ -36,6 +36,7 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
  const music = require('./commands/music');
  const fun = require('./commands/fun.js');
  const help = require('./commands/help');
+const musicSound = require('./commands/music-sound');
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
@@ -91,7 +92,8 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
       const randomNum = (Math.floor(Math.random()* 2)+1).toString();
       if(randomNum ==='1') msg.reply("Heads"); 
       else  msg.reply("Tails"); 
-     }     
+     }    
+     //music bot 
      if(msg.content.substring().split(" ")[0] === "!sa" && (msg.content.substring().split(" ")[1]=== "play")||(msg.content.substring().split(" ")[1]=== "pause")||(msg.content.substring().split(" ")[1]=== "stop")||(msg.content.substring().split(" ")[1]=== "skip")){
       if(permission(bot,msg)) music(bot,msg);
       else{
@@ -99,6 +101,15 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
          msg.channel.send("This is weird... I guess you dont the permission to use this commad"); 
       }
      } 
+     if(msg.content.substring().split(" ")[0] === "!sa" && (msg.content.substring().split(" ")[1]=== "soundplay")||(msg.content.substring().split(" ")[1]=== "soundpause")||(msg.content.substring().split(" ")[1]=== "soundstop")||(msg.content.substring().split(" ")[1]=== "skip")){
+      if(permission(bot,msg)) musicSound(bot,msg);
+      else{
+         msg.channel.send("Look If you had One shot, Or, one opportunity To seize everything you ever wanted, In one moment..."); 
+         msg.channel.send("This is weird... I guess you dont the permission to use this commad"); 
+      }
+     } 
+
+     //
      if(msg.content.substring().split(" ")[0] === "!sa" &&msg.content.substring().split(" ")[1]=== "poll"){
         try{
       poll(bot,msg);
