@@ -18,7 +18,7 @@ module.exports = (bot,msg)=>{
               msg.channel.send("**"+ '📝POLL:\n ' +"**"+msgArgs).then(MessageReaction =>{
                   MessageReaction.react("👍");
                   MessageReaction.react("👎");
-                  msg.delete(5000).catch(console.error);
+                 // msg.delete(5000).catch(console.error);
               });
         break;
       }

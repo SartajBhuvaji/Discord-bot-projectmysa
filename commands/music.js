@@ -149,6 +149,4 @@ function play(guild, song) {
     .on("error", error => console.error(error));
   dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
   serverQueue.textChannel.send(`Now playing: **${song.title}**`);
-
-  
 }

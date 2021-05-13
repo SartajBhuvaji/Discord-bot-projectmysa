@@ -16,5 +16,6 @@ module.exports = (bot,msg)=>{
     ]
     var length = random.length
    var no =  Math.floor((Math.random() * length) + 1);
-    msg.channel.send("Check out this website: "+ random[no]);
+   if(random[no]===undefined) msg.channel.send("Check out this website: "+ random[1]);
+   msg.channel.send("Check out this website: "+ random[no]);
 }
