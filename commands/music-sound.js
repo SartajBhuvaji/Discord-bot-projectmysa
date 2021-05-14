@@ -99,7 +99,7 @@ const args = message.content.split(" ")[3];
     }
   } else {
     serverQueue.songs.push(song);
-    return message.channel.send(`${song.title} has been added to the queue!`);
+    return message.channel.send(`**${theme}** has been added to the queue!`);
   }
 }
 

@@ -24,6 +24,7 @@ module.exports = (bot, msg) => {
             { name: "``!sa fun``", value: 'Sends you link to a random fun website', inline: false },
 
             { name: "```!sa <play/stop/skip> <URL>```", value: 'Music commands', inline: false },
+            { name: "```!sa <soundplay/soundstop/soundskip> <sea/rain/relax>```", value: 'Sound commands', inline: false },
             
             { name: "```!sa easteregg```", value: '??????', inline: false },
             { name: "``!sa poke @member``", value: 'Poke a user', inline: false },

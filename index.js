@@ -36,7 +36,8 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
  const music = require('./commands/music');
  const fun = require('./commands/fun.js');
  const help = require('./commands/help');
-const musicSound = require('./commands/music-sound');
+ const musicSound = require('./commands/music-sound');
+ const announcement = require('./commands/moderation/announcement');
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
@@ -141,7 +142,12 @@ const musicSound = require('./commands/music-sound');
       if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "ban" ){
        if(permission(bot,msg)) ban(bot,msg)         
       }
+      if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "announce"){
+         if(permission(bot,msg)) announcement(bot,msg);
+      }
       //
+
+
       if(msg.content === "!sa fun"){
           fun(bot,msg)         
         }
