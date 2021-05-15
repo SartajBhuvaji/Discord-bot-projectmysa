@@ -67,6 +67,12 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
  })
 
  bot.on('message', msg=>{
+    if(msg.content.substring().split(" ")[0] === "!sa" && msg.channel.id  === confessHere){
+       const channel = msg.guild.channels.cache.find((channel => channel.id === confessHere));
+       msg.author.send(`Sorry you cannot use !sa commands in <#${channel.id}>`)
+       msg.delete()
+       return;
+    }
     //basic commands
      if (msg.author.bot) return;
      if(msg.content === "!sa hi"){
@@ -190,7 +196,7 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
         });     
       }
       if(msg.content === `!sa breath`){
-        const randomNum = (Math.floor(Math.random()* 10)+1).toString(); 
+        const randomNum = (Math.floor(Math.random()* 6)+1).toString(); 
         var array = ["breath1","breath2","breath3","breath4","breath5","breath6"]
          const breath = "breath"+`${randomNum}`+".gif";
          const ballembed = new Discord.MessageEmbed()

@@ -4,7 +4,6 @@ ACCESS : MOD
 COMMAND : !sa helpmod
 */
 const Discord = require('discord.js');
-const { merge } = require("snekfetch");
 module.exports = (bot,msg)=>{  
     const channel =msg.guild.channels.cache.find((channel => channel.id === '838739979290148905'));
     const attachment = new Discord.MessageAttachment('./media/logo.png', 'logo.png');
@@ -13,7 +12,7 @@ module.exports = (bot,msg)=>{
 	      .setTitle('Projectmysa')
 	      .setURL('https://www.instagram.com/projectmysa/')
 	      //.setAuthor('Sartaj', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	      .setDescription('Hi, projectmysa bot is a fun and easy-to-use Mental Health Support Bot for confessions, help, hugs, and more!')
+        .setDescription('Hi, ✨projectmysa bot is a fun and easy-to-use Mental Health Support Bot for fun, help, hugs and more! ❤️')
           .attachFiles(attachment)
 	      .setThumbnail('attachment://logo.png')
           .addFields(
