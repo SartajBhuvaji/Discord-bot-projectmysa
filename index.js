@@ -38,6 +38,7 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
  const help = require('./commands/help');
  const musicSound = require('./commands/music-sound');
  const announcement = require('./commands/moderation/announcement');
+const welcome = require('./commands/singleusecommands/welcome');
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
@@ -67,6 +68,12 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
  })
 
  bot.on('message', msg=>{
+   //Single time
+   if(msg.content === "!sa singletime")
+  {if(permission(bot,msg)) welcome(bot,msg)
+return;
+  }
+   //
     if(msg.content.substring().split(" ")[0] === "!sa" && msg.channel.id  === confessHere){
        const channel = msg.guild.channels.cache.find((channel => channel.id === confessHere));
        msg.author.send(`Sorry you cannot use !sa commands in <#${channel.id}>`)
@@ -83,9 +90,9 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
       "He lovess coding.",
       "Coffee is his life",
       "He loves you all."                  
-    ];
+    ]
         try{
-      const randomNum = (Math.floor(Math.random()* 5)+1).toString(); 
+      const randomNum = (Math.floor(Math.random()* 4)+1).toString(); 
         msg.reply(facts[randomNum])   
                }catch(err){
                   msg.reply("He's still working 👨‍💻") 
@@ -124,9 +131,11 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
      }
      if(msg.content.substring().split(" ")[0] === "!sa" &&msg.content.substring().split(" ")[1]=== "poke"){
       pokeLove(bot,msg)
+      return;
      }
      if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "sendlove"){
       pokeLove(bot,msg)
+      return;
      }
 
      //moderation
@@ -134,6 +143,7 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
       if(permission(bot,msg)){
        msg.reply("I have sent you a DM of moderator commands."); 
        modcommands(bot,msg)
+       return;
        }
        else {
           msg.reply("\nTo ban people use !sa .....\noops!\nyou dont seem to be a moderator!!\nCommand not permitted"); 
@@ -155,26 +165,32 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
 
 
       if(msg.content === "!sa fun"){
-          fun(bot,msg)         
+          fun(bot,msg)     
+          return;    
         }
 
      if(msg.content === "!sa getrole" ){
        msg.author.send("WIP"); 
+       return;
       }
    
      //primary command
       if(msg.content=== "!sa help"){
          help(bot,msg)
+         return;
       }
       if(msg.content === '!sa helpmisc'){
          helpmisc(bot,msg)
+         return;
       }
       if(msg.content === '!sa easteregg'){
          easteregg(bot,msg)
+         return;
       }
       var array = msg.content.substring().split(' ');
       if(array[0]==="!sa" && array[1]==="easter" ){
          eastereggworker(bot,msg)
+         return;
       }
 
       
@@ -259,7 +275,7 @@ GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
              color: 3447003,
              title: `New Confession `,
              fields: [
-              { name: "@" + 'moderator' + " " , value:" please take care"},
+              { name: "@" + 'moderator' + " " , value:" please care"},
               { name: `From: ${userTag}`, value:`Message: \n${newMsg}`},
             ]
           }

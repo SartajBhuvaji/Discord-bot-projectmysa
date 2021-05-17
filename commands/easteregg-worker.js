@@ -7,6 +7,8 @@ const Discord = require('discord.js');
 const { merge } = require("snekfetch");
 const fs = require('fs');
 const path = require('path');
+const easteregg = "840801208595644446"
+const easteregg_ID = easteregg 
 let rawdata = fs.readFileSync(path.resolve(__dirname, 'eastereggdata.json'));
 let data = JSON.parse(rawdata);
 var counter1
@@ -37,7 +39,7 @@ module.exports = (bot,msg)=>{
            if(randomDigit.find(no => no  === array[3] )){ // find array 3 in data.random nos
                const newMsg = msg;
                msg.delete();
-               let role = newMsg.member.guild.roles.cache.find(role => role.name === "🥚 egg hunter");
+               let role = newMsg.member.guild.roles.cache.find(role => role.id === easteregg_ID);
                if (role) newMsg.guild.members.cache.get(newMsg.author.id).roles.add(role);
                newMsg.reply("@everyone look!\n"+`<@${newMsg.author.id}>` +" has found an egg 🥚!!!\n🎉 Special reward: role added: "+ role.name+"\n🙌🏻 You get to choose the server icon for 1 Week🙌🏻. Message a moderator for more info\n (Your answer was deleted) ")               //give user the special role
                counter11= counter1-1;
@@ -61,7 +63,7 @@ module.exports = (bot,msg)=>{
             if(counter22<=0)counter22===0;
             const newMsg = msg;
              msg.delete();
-            let role = newMsg.member.guild.roles.cache.find(role => role.name === "🥚 egg hunter");
+            let role = newMsg.member.guild.roles.cache.find(role => role.id === easteregg_ID);
             if (role) newMsg.guild.members.cache.get(newMsg.author.id).roles.add(role);
             newMsg.reply("@everyone look!\n"+`<@${newMsg.author.id}>` +" has found an egg 🥚!!!\n🎉🎉🎉 Special reward: role added: "+ role.name+"\n 🙌🏻You get to choose the server icon for 1 Week. Message a moderator for more info\n(Your answer was deleted) ")
            }
@@ -78,7 +80,7 @@ module.exports = (bot,msg)=>{
             if(counter33<=0)counter33===0;
          const newMsg = msg;
          msg.delete();
-         let role = newMsg.member.guild.roles.cache.find(role => role.name === "🥚 egg hunter");
+         let role = newMsg.member.guild.roles.cache.find(role => role.id === easteregg_ID);
          if (role)  newMsg.guild.members.cache.get(newMsg.author.id).roles.add(role);
          newMsg.reply("@everyone look!\n"+`<@${newMsg.author.id}>` +" has found an 🥚!!\n 🙌🏻Special reward: role added: "+ role.name+"\n🎉🎉 You get to choose the server icon for 1 Week. Message a moderator for more info\n (Your answer was deleted) ")
         }
@@ -94,7 +96,7 @@ module.exports = (bot,msg)=>{
     fs.writeFile("./commands/eastereggdata.json", JSON.stringify(tostore,null,4),err=>{
         if(err) throw err;
        // msg.reply("data added!!!") 
-       console.log("JSON updated")   
+      // console.log("JSON updated")   
     })
     } else msg.reply("Invalid para!!!") 
  }

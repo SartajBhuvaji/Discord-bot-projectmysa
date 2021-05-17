@@ -12,7 +12,9 @@ module.exports = (bot,msg)=>{
     "http://wxs.ca/iso/",
     "http://cabbi.bo/light/",
     "https://asoftmurmur.com/",
-    "https://roboboogie.codeclub.org.uk/"
+    "https://roboboogie.codeclub.org.uk/",
+    "https://quickdraw.withgoogle.com/",
+    "https://musiclab.chromeexperiments.com/Song-Maker"
     ]
     var length = random.length
    var no =  Math.floor((Math.random() * length) + 1);

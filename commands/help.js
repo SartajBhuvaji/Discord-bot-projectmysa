@@ -9,7 +9,7 @@ module.exports = (bot, msg) => {
 	      .setTitle('Projectmysa')
 	      .setURL('https://www.instagram.com/projectmysa/')
 	      //.setAuthor('Sartaj', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	      .setDescription('Hi, ✨projectmysa bot is a fun and easy-to-use Mental Health Support Bot for confessions, help, hugs, and more! ❤️')
+	      .setDescription('Hi, ✨projectmysa bot is a fun and easy-to-use Mental Health Support Bot for fun, help, hugs and more! ❤️')
          .attachFiles(attachment)
 	      .setThumbnail('attachment://logo.png')
       	.addFields(
