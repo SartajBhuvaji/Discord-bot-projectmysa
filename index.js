@@ -13,6 +13,7 @@
                    README.MD - GITHUB README
 BY               : SARTAJ    
 GITHUB           : https://github.com/SartajBhuvaji/projectmysa-discord-bot
+BOT URL          : https://discord.com/oauth2/authorize?client_id=838752435685687366&scope=bot&permissions=8
 
  */
  const Discord = require('discord.js');
@@ -192,9 +193,6 @@ return;
          eastereggworker(bot,msg)
          return;
       }
-
-      
-
       //Heal bot
       // bug: gif file not loading
       if(msg.content === `!sa talk`){
@@ -281,7 +279,5 @@ return;
           }
         });
      }
-     
-     
  })
  bot.login(token);
