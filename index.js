@@ -240,7 +240,7 @@ return;
 	      .setTitle('Projectmysa')
 	      .setURL('https://www.instagram.com/projectmysa/')
 	      //.setAuthor('Sartaj', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	      .setDescription('Hi, ✨projectmysa bot is a fun and easy-to-use Mental Health Support Bot for confessions, help, hugs, and more!❤️')
+	      .setDescription('Hi, ✨projectmysa bot is a fun and easy-to-use Mental Health Support Bot for fun, help, hugs, and more!❤️')
          .attachFiles(attachment)
 	      .setThumbnail('attachment://logo.png')
 
@@ -255,7 +255,7 @@ return;
          }
          else{
             exampleEmbed.addFields(
-               { name: '• Call a Friend', value: "\u200B"},
+               { name: '• call a Friend \n• visit a friend \n• pet a cat/dog \n• cook your favourite dish ', value: "\u200B"},
             )
          }//add more cases
          exampleEmbed.setFooter('Mysa- Project Mental Health', 'attachment://logo.png');
