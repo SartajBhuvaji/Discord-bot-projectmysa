@@ -23,12 +23,13 @@ module.exports = (bot, msg) => {
             { name: "``!sa poll <statememt>``", value: 'Make a poll', inline: false },
             { name: "``!sa fun``", value: 'Sends you link to a random fun website', inline: false },
 
-            { name: "```!sa <play/stop/skip> <URL>```", value: 'Music commands', inline: false },
-            { name: "```!sa <soundplay/soundstop/soundskip> <sea/rain/relax>```", value: 'Sound commands', inline: false },
+            { name: "```!sa play/stop/skip <URL>```", value: 'Music commands', inline: false },
+            { name: "```!sa soundplay/soundstop/soundskip <sea/rain/relax>```", value: 'Sound commands', inline: false },
             
             { name: "```!sa easteregg```", value: '??????', inline: false },
             { name: "``!sa poke @member``", value: 'Poke a user', inline: false },
             { name: "``!sa sendlove @member``", value: 'Show your love', inline: false },
+            { name: "``!sa report @member <reason>``", value: 'Anonynomously report a member', inline: false },
             { name: "```!sa helpmod```", value: 'Moderator commands help', inline: false },
             { name: "``!sa help``", value: 'For complete help list', inline: false },
 

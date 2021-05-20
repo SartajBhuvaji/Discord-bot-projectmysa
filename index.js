@@ -40,6 +40,8 @@ BOT URL          : https://discord.com/oauth2/authorize?client_id=83875243568568
  const musicSound = require('./commands/music-sound');
  const announcement = require('./commands/moderation/announcement');
 const welcome = require('./commands/singleusecommands/welcome');
+const report = require('./commands/report');
+const highlvlmemberPermission = require('./commands/highlvlmember-permission');
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
@@ -162,6 +164,10 @@ return;
       if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "announce"){
          if(permission(bot,msg)) announcement(bot,msg);
       }
+      if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "report"){
+        if(highlvlmemberPermission(bot,msg)) report(bot,msg);
+        else{msg.author.send('Sorry, you dont have enough XP role to report. Please contact moderators');}
+      }
       //
 
 
@@ -240,7 +246,7 @@ return;
 	      .setTitle('Projectmysa')
 	      .setURL('https://www.instagram.com/projectmysa/')
 	      //.setAuthor('Sartaj', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-	      .setDescription('Hi, ✨projectmysa bot is a fun and easy-to-use Mental Health Support Bot for fun, help, hugs, and more!❤️')
+	      .setDescription('Hi, ✨projectmysa bot is a fun and easy-to-use Mental Health Support Bot for fun, help, hugs and more!❤️')
          .attachFiles(attachment)
 	      .setThumbnail('attachment://logo.png')
 
