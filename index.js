@@ -39,9 +39,9 @@ BOT URL          : https://discord.com/oauth2/authorize?client_id=83875243568568
  const help = require('./commands/help');
  const musicSound = require('./commands/music-sound');
  const announcement = require('./commands/moderation/announcement');
-const welcome = require('./commands/singleusecommands/welcome');
-const report = require('./commands/report');
-const highlvlmemberPermission = require('./commands/highlvlmember-permission');
+ const welcome = require('./commands/singleusecommands/welcome');
+ const report = require('./commands/report');
+ const highlvlmemberPermission = require('./commands/highlvlmember-permission');
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
@@ -95,7 +95,7 @@ return;
       "He loves you all."                  
     ]
         try{
-      const randomNum = (Math.floor(Math.random()* 4)+1).toString(); 
+      const randomNum = (Math.floor(Math.random()* 3)+1); 
         msg.reply(facts[randomNum])   
                }catch(err){
                   msg.reply("He's still working 👨‍💻") 

@@ -15,40 +15,41 @@ module.exports = (bot,msg)=>{
    const newmsg = msg;
    if(!msg.content.substring().split(" ")[3]) {
       msg.delete()
-      return newmsg.channel.send("reason not mentioned")  
+      return newmsg.author.send("Report reason not mentioned.")  
    }
    if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]==="report"){
    msg.delete()
    const memberTarget = newmsg.guild.members.cache.get(target.id)
    if(!target) return newmsg.author.send('Please provide a user that you wish to report');
    if(memberTarget.roles.cache.some(r=>r.id === mod_id)||memberTarget.roles.cache.some(r=>r.id === adminid)){
-      return newmsg.author.send('Cannot report mods');
+      return newmsg.author.send('Cannot report mods.');
    }
    else{
-      // newmsg.channel.send(newmsg.url);
     var content = newmsg.content.substring().split(" ");
     var contentdelivery = " "
     for (i = 3; i < content.length; i++){
      contentdelivery  = contentdelivery + content[i] + " ";
-    }
+   }
 
+   const Moderator = msg.guild.roles.cache.find(role => role.id == mod_id);
+ //  Embed.addField("All Roles", `This is the ${Moderator ? `${Moderator}` : "role not found"} role.`);
+   const attachment = new Discord.MessageAttachment('./media/logo.png', 'logo.png');
       const embed = new Discord.MessageEmbed()
             .setColor("#0099ff")
-            .setTimestamp()
-            .setFooter('Mysa- Project Mental Health', 'attachment://logo.png')
-           // image = setImage(msg.author.displayAvatarURL)
-            .setAuthor("Reported member", target.displayAvatarURL)
+            .setTimestamp() 
+            .setAuthor("Reported member",target.displayAvatarURL())
+            .attachFiles(attachment)
             .setDescription(`
             **> Member Reported:** ${target}
             **> Reported by:** ${newmsg.author}
             **> Reported in:** ${newmsg.channel}
             **> Reason:** ${contentdelivery}
-            **> URL:** ${newmsg.url}`);
+            **> URL:** ${newmsg.url}`)
+            .addField("Alert", `${Moderator ? `${Moderator}` : "role not found"}`)
+            .setFooter('Mysa- Project Mental Health', 'attachment://logo.png');
       const  tologs = bot.channels.cache.find(channel =>channel.id === botlogid);   
+      newmsg.author.send(`**Report Alert**\n\nReported: ${target}\nFor: ${contentdelivery}\nIn channel: ${newmsg.channel}\nURL: ${newmsg.url}`);
       tologs.send(embed);
-      newmsg.author.send(embed);
-
+      }
    }
-}
-
 }
