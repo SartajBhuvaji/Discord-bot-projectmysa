@@ -19,7 +19,11 @@ module.exports = (bot,msg)=>{
    }
    if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]==="report"){
    msg.delete()
+   try{
+      newmsg.guild.members.cache.get(target.id)
+   }catch{return newmsg.author.send('Please provide a user that you wish to report');}
    const memberTarget = newmsg.guild.members.cache.get(target.id)
+   
    if(!target) return newmsg.author.send('Please provide a user that you wish to report');
    if(memberTarget.roles.cache.some(r=>r.id === mod_id)||memberTarget.roles.cache.some(r=>r.id === adminid)){
       return newmsg.author.send('Cannot report mods.');

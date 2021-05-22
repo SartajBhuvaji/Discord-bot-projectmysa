@@ -19,6 +19,7 @@ module.exports = (bot, msg) => {
 	      	{ name: "```!sa breath```", value: 'Breath wizard, to calm yourself.', inline: false },
             { name: "```!sa cat```", value: 'Cute cat image attacks.', inline: false },
             { name: "```!sa selfcare```", value: 'Simple self care routine for you.', inline: false }, 
+            { name: "``!sa report @member <reason>``", value: 'Anonymously  report a member', inline: false },
             { name: "```!sa helpmisc```", value: 'More commands.', inline: false },
      
             { name: '\u200B', value: '\u200B' },

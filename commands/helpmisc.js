@@ -29,7 +29,6 @@ module.exports = (bot, msg) => {
             { name: "```!sa easteregg```", value: '??????', inline: false },
             { name: "``!sa poke @member``", value: 'Poke a user', inline: false },
             { name: "``!sa sendlove @member``", value: 'Show your love', inline: false },
-            { name: "``!sa report @member <reason>``", value: 'Anonymously  report a member', inline: false },
             { name: "```!sa helpmod```", value: 'Moderator commands help', inline: false },
             { name: "``!sa help``", value: 'For complete help list', inline: false },
 
