@@ -23,8 +23,9 @@ BOT URL          : https://discord.com/oauth2/authorize?client_id=83875243568568
  const confessHere  = config.confessHereToken; 
  const confessions  = config.confessionsToken;
  const mod_id  = config.MOD_ID; 
- const helpmisc = require('./commands/helpmisc.js')
- const poll = require('./commands/poll.js')
+ const msgtimer = config.MESSAGE_TIMER ; //around 1 day
+ const helpmisc = require('./commands/helpmisc.js');
+ const poll = require('./commands/poll.js');
  const { get, copy } = require("snekfetch"); 
  const permission = require('./commands/moderation/permission');
  const pokeLove = require('./commands/pokeLove');
@@ -42,6 +43,8 @@ BOT URL          : https://discord.com/oauth2/authorize?client_id=83875243568568
  const welcome = require('./commands/singleusecommands/welcome');
  const report = require('./commands/moderation/report');
  const highlvlmemberPermission = require('./commands/highlvlmember-permission');
+ const timedmessages = require('./commands/timedmessages');
+ 
  bot.on('ready',()=>{
     console.log('Bot Online');
     console.log(`${bot.user.tag} is now watching online!`)
@@ -70,6 +73,12 @@ BOT URL          : https://discord.com/oauth2/authorize?client_id=83875243568568
          member.send(exampleEmbed);
  })
 
+bot.on('ready',()=>{
+   setInterval(()=>{
+      timedmessages(bot);
+   },msgtimer);
+})
+
  bot.on('message', msg=>{
    //Single time
    if(msg.content === "!sa singletime")
@@ -90,12 +99,17 @@ return;
      }
      if(msg.content === "!sa master"){
       const facts =["He likes green apples🍏 more than red🍎.",
-      "He lovess coding.",
+      "Send him memes @Sartajbhuvaji",
       "Coffee is his life",
-      "He loves you all."                  
+      "His favourite song: Till I Collapse",
+      "His favourite language: Python ",
+      "He loves computers and coding",
+      "His favourite book: Cracking the coding interview",
+      "His favourite YT: Sentdex",
+      "Wanna stalk? Go star his GitHub, he would love that",               
     ]
         try{
-      const randomNum = (Math.floor(Math.random()* 3)+1); 
+      const randomNum = (Math.floor(Math.random()* facts.length)); 
         msg.reply(facts[randomNum])   
                }catch(err){
                   msg.reply("He's still working 👨‍💻") 
@@ -288,6 +302,5 @@ return;
           }
         });
      }
-     
  })
  bot.login(token);
