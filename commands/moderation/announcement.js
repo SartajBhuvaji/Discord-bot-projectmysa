@@ -4,12 +4,10 @@ ACCESS : MOD
 COMMAND : !sa announce <statement>
 */
 const Discord = require('discord.js');
-const ANNOUNCEMENT_ID = "838742354793725973"
-const BOTLOG_ID = "841678605830324274"
-const EVERYONEROLE_ID = "838739655562231828"
-const announcement_ID = ANNOUNCEMENT_ID
-const everyoneid = EVERYONEROLE_ID
-const botlogid = BOTLOG_ID
+const discordID = require("./DiscordID.json");
+const announcement_ID = discordID.ANNOUNCEMENT_ID
+const everyoneid = discordID.EVERYONEROLE_ID
+const botlogid = discordID.BOTLOG_ID
 module.exports = (bot, msg) => {
     const newMsg = msg;
     const modre = newMsg.author;

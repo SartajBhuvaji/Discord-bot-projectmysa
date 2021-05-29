@@ -15,7 +15,7 @@ module.exports = (bot, msg) => {
       	.addFields(
             { name: 'How to find and use commands❔', value: "My prefix is ``!sa`` \nTo get started, please type one of the commands below."},
             //{ name: '\u200B', value: '\u200B' },
-	      	{ name: "``!sa talk``", value: 'Talk to a @moderator.\n', inline: false },
+	      	{ name: "``!sa connect``", value: 'Connect to a @moderator.\n', inline: false },
 	      	{ name: "```!sa breath```", value: 'Breath wizard, to calm yourself.', inline: false },
             { name: "```!sa cat```", value: 'Cute cat image attacks.', inline: false },
             { name: "```!sa selfcare```", value: 'Simple self care routine for you.', inline: false }, 

@@ -22,7 +22,7 @@ BOT URL          : https://discord.com/oauth2/authorize?client_id=83875243568568
  const token = config.BOT_TOKEN;
  const confessHere  = config.confessHereToken; 
  const confessions  = config.confessionsToken;
- const MODCHAT_ID  = config.MODCHAT_ID; 
+ const mod_id  = config.MOD_ID; 
  const helpmisc = require('./commands/helpmisc.js')
  const poll = require('./commands/poll.js')
  const { get, copy } = require("snekfetch"); 
@@ -40,7 +40,7 @@ BOT URL          : https://discord.com/oauth2/authorize?client_id=83875243568568
  const musicSound = require('./commands/music-sound');
  const announcement = require('./commands/moderation/announcement');
  const welcome = require('./commands/singleusecommands/welcome');
- const report = require('./commands/report');
+ const report = require('./commands/moderation/report');
  const highlvlmemberPermission = require('./commands/highlvlmember-permission');
  bot.on('ready',()=>{
     console.log('Bot Online');
@@ -166,11 +166,9 @@ return;
       }
       if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "report"){
         if(highlvlmemberPermission(bot,msg)) report(bot,msg);
-        else{msg.author.send('Sorry, you dont have enough XP role to report. Please contact moderators');}
+        else{msg.author.send('Sorry, you dont have enough XP role to report. Please contact moderators using ```!sa connect ```');}
       }
       //
-
-
       if(msg.content === "!sa fun"){
           fun(bot,msg)     
           return;    
@@ -201,19 +199,23 @@ return;
       }
       //Heal bot
       // bug: gif file not loading
-      if(msg.content === `!sa talk`){
+      if(msg.content === `!sa connect`){
          msg.reply('Hi, I have messaged the moderators. You should receive a new message soon. :heart: ');
          msg.react(`✅`);
+         const Moderator = msg.guild.roles.cache.find(role => role.id == mod_id);
          const toConfessions = bot.channels.cache.find(channel =>channel.id === confessions);
-         const userTag  =  msg.author.tag;
-         toConfessions.send({embed: {
-             color: 3447003,
-             title: `Can we talk? `,
-             fields: [
-              { name: "@" + 'moderator' + " " , value:" please have a session with" +` ${userTag}` },
-            ]
-          }
-        });     
+         const attachment = new Discord.MessageAttachment('./media/logo.png', 'logo.png');
+         const embed = new Discord.MessageEmbed()
+            .setColor("#0099ff")
+            .setTimestamp() 
+            .setAuthor("Connect",msg.author.displayAvatarURL())
+            .attachFiles(attachment)
+            .setDescription(`
+            **> Connect to:** ${msg.author}`)
+            .addField("Alert", `${Moderator ? `${Moderator}` : "role not found"}`)
+            .setFooter('Mysa- Project Mental Health', 'attachment://logo.png');
+            toConfessions.send(embed)
+
       }
       if(msg.content === `!sa breath`){
         const randomNum = (Math.floor(Math.random()* 6)+1).toString(); 
@@ -270,6 +272,7 @@ return;
       //
 
      //confession
+    
      if(msg.channel.id  === confessHere){
          const newMsg = msg;
          msg.delete();
@@ -285,5 +288,6 @@ return;
           }
         });
      }
+     
  })
  bot.login(token);

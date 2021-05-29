@@ -4,12 +4,10 @@ ACCESS :
 COMMAND : !sa report <@member> reason
 */
 const Discord = require('discord.js');
-const BOTLOG_ID = "841678605830324274"
-const botlogid = BOTLOG_ID
-const ADMIN_ID = "838741294930591775"
-const adminid = ADMIN_ID
-const MOD_ID = "838740484687396884"
-const mod_id = MOD_ID
+const discordID = require("./DiscordID.json");
+const modchatid = discordID.MODCHAT_ID
+const adminid = discordID.ADMIN_ID
+const mod_id = discordID.MOD_ID
 module.exports = (bot,msg)=>{ 
    const target = msg.mentions.users.first();
    const newmsg = msg;
@@ -36,7 +34,6 @@ module.exports = (bot,msg)=>{
    }
 
    const Moderator = msg.guild.roles.cache.find(role => role.id == mod_id);
- //  Embed.addField("All Roles", `This is the ${Moderator ? `${Moderator}` : "role not found"} role.`);
    const attachment = new Discord.MessageAttachment('./media/logo.png', 'logo.png');
       const embed = new Discord.MessageEmbed()
             .setColor("#0099ff")
@@ -51,9 +48,9 @@ module.exports = (bot,msg)=>{
             **> URL:** ${newmsg.url}`)
             .addField("Alert", `${Moderator ? `${Moderator}` : "role not found"}`)
             .setFooter('Mysa- Project Mental Health', 'attachment://logo.png');
-      const  tologs = bot.channels.cache.find(channel =>channel.id === botlogid);   
+      const  toChannel = bot.channels.cache.find(channel =>channel.id === modchatid);   
       newmsg.author.send(`**Report Alert**\n\nReported: ${target}\nFor: ${contentdelivery}\nIn channel: ${newmsg.channel}\nURL: ${newmsg.url}`);
-      tologs.send(embed);
+      toChannel.send(embed);
       }
    }
 }

@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 module.exports = (bot, msg) => {
-    var contentdelivery =["Hi welcome to the server"]
-    var title =["Welcome"]
-    var channel_id =["838739979290148904"] //rules,
+    var contentdelivery =["Safe space is meant for your thoughts to be directly sent to moderators and support group.\nAny message sent in this chat will be sent and deleted from this channel. Thus maintaining total privacy"]
+    var title =["Safe Space"]
+    var channel_id =["838748507236990986"] //rules,
     for (i = 0; i < contentdelivery.length; i++){
     const toChannel = bot.channels.cache.find(channel =>channel.id === channel_id[i]);//rules
     const attachment = new Discord.MessageAttachment('./media/logo.png', 'logo.png');

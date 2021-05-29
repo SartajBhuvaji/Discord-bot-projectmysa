@@ -16,7 +16,7 @@ module.exports = (bot,msg)=>{
           .attachFiles(attachment)
 	      .setThumbnail('attachment://logo.png')
           .addFields(
-            { name: 'Please notify at least one more moderator before you kick/ban a member.\n\nBelow listed commands ```will be deleted once executed``` when sent in any text channel \nModerator commands:', value: "My prefix is ``!sa``"},
+            { name: 'Please notify at least one more moderator before you kick/ban a member.\n\nBelow listed commands ```will be deleted once executed``` when sent in any text channel \n\nModerator commands:', value: "My prefix is ``!sa``"},
             //{ name: '\u200B', value: '\u200B' },
             { name: "``!sa announce <content>``", value: 'Make an announcement', inline: false },  
             { name: "``!sa warn <member>``", value: '⚠️ To warn a member', inline: false },
