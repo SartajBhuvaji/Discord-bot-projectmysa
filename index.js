@@ -177,10 +177,16 @@ return;
       }
       if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "announce"){
          if(permission(bot,msg)) announcement(bot,msg);
+         if(!permission(bot,msg))
+         {
+            console.log("here")
+            msg.delete()
+            msg.author.send('Sorry, you dont have enough XP role to report. Please contact moderators using ``!sa connect ``');}
       }
       if(msg.content.substring().split(" ")[0] === "!sa" && msg.content.substring().split(" ")[1]=== "report"){
         if(highlvlmemberPermission(bot,msg)) report(bot,msg);
-        else{msg.author.send('Sorry, you dont have enough XP role to report. Please contact moderators using ```!sa connect ```');}
+        else{msg.delete()
+           msg.author.send('Sorry, you dont have enough XP role to report. Please contact moderators using ``!sa connect ``');}
       }
       //
       if(msg.content === "!sa fun"){
